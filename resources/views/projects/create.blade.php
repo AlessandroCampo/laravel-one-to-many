@@ -5,6 +5,7 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
 ?>
 
 
+
 <x-app-layout>
     <x-slot name="header">
         <div class="flex gap-2 items-center">
@@ -46,12 +47,14 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
                     <div class="mb-5">
-                        <label for="stack" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <label for="stack_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Project Stack </label>
-                        <select name="stack" id="stack" class="{{ $form_classes }}">
-                            <option value="vue">
-                                Vue </option>
-                            <option value="laravel"> Laravel </option>
+                        <select name="stack_id" id="stack_id" class="{{ $form_classes }}">
+                            @foreach ($stacks as $item)
+                                <option value="{{ $item->id }}">
+                                    {{ Str::ucfirst($item->name) }} </option>
+                            @endforeach
+
                         </select>
                     </div>
 

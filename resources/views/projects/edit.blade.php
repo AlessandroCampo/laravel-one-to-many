@@ -52,13 +52,16 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
                         @enderror
                     </div>
                     <div class="mb-5">
-                        <label for="stack" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Project Stack </label>
-                        <select name="stack" id="stack" class="{{ $form_classes }}">
-                            <option value="vue">
-                                Vue </option>
-                            <option value="laravel"> Laravel </option>
+                        <label for="stack_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Project stack_id </label>
+                        <select name="stack_id" id="stack_id" class="{{ $form_classes }}">
+                            @foreach ($stacks as $item)
+                                <option value="{{ $item->id }}"
+                                    {{ $item->id == $project->stack_id ? 'selected' : '' }}>
+                                    {{ Str::ucfirst($item->name) }} </option>
+                            @endforeach
                         </select>
+
                     </div>
 
                     <div class="mb-5">

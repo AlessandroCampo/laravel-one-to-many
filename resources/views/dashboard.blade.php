@@ -1,3 +1,7 @@
+@php
+    use App\Models\Stack;
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <div class="flex gap-2 items-center">
@@ -18,12 +22,16 @@
             <div
                 class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex justify-between p-6 flex-wrap">
                 @foreach ($projects as $projectData)
+                    @php
+
+                        $stack = Stack::find($projectData['stack_id']);
+                    @endphp
                     <div
                         class="card flex items-center gap-4 flex-col w-[250px] bg-zinc-800  text-white p-3 rounded-xl  my-4">
                         <img src="{{ $projectData['thumb'] }}" class="w-[200px] h-[100px]">
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl font-semibold"> {{ $projectData['title'] }}</h2>
-                            <img src="{{ Vite::asset('resources/img/vue.png') }}" class="w-[30px]">
+                            <img src="{{ $stack->logo_url }}" class="w-[30px]">
                         </div>
 
                         <p class="text-sm text-center">

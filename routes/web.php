@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Models\Project;
+use App\Models\Stack;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $projects = Project::all();
-    return view('dashboard', compact('projects'));
+    $stacks = Stack::all();
+    return view('dashboard', compact('projects', 'stacks'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

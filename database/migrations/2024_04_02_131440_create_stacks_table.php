@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('stacks', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->nullable(false);
+            $table->string('name', 100)->nullable(false)->unique();
             $table->string('logo_url', 350)->nullable(true);
             $table->timestamps();
         });
