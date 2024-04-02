@@ -37,7 +37,7 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        // Logic to show a specific project
+        return view('projects.show', compact('project'));
     }
 
     public function edit(Project $project)
@@ -57,7 +57,7 @@ class ProjectController extends Controller
             ]
         );
         $project->update($validated_data);
-        return redirect()->route('dashboard');
+        return view('projects.show', compact('project'));
     }
 
     public function destroy(Project $project)

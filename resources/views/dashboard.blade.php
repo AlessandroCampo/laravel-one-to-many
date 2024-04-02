@@ -27,7 +27,7 @@
                         $stack = Stack::find($projectData['stack_id']);
                     @endphp
                     <div
-                        class="card flex items-center gap-4 flex-col w-[250px] bg-zinc-800  text-white p-3 rounded-xl  my-4">
+                        class="card flex items-center gap-4 flex-col w-[300px] bg-zinc-800  text-white py-5  px-8 rounded-xl  my-4">
                         <img src="{{ $projectData['thumb'] }}" class="w-[200px] h-[100px]">
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl font-semibold"> {{ $projectData['title'] }}</h2>
@@ -41,6 +41,9 @@
                         <div class="actions flex gap-2 items-center">
                             <a href="{{ route('projects.edit', ['project' => $projectData]) }}"
                                 class="bg-yellow-600 rounded-lg w-[80px] py-1 text-center">Edit</a>
+
+                            <a href="{{ route('projects.show', ['project' => $projectData]) }}"
+                                class="bg-blue-600 rounded-lg w-[80px] py-1 text-center">Show</a>
 
                             <form action="{{ route('projects.destroy', ['project' => $projectData]) }}" method="POST">
                                 @csrf
