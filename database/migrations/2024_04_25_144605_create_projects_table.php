@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreign('stack_id')->references('id')->on('stacks')->onDelete('cascade');
             $table->text('description', 8192)->nullable(true);
             $table->string('thumb', 250)->nullable(true);
-            $table->string('stack', 125)->nullable(true);
             $table->timestamps();
         });
     }
