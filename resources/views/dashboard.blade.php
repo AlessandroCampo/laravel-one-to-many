@@ -39,11 +39,10 @@
                         </p>
 
                         <div class="actions flex gap-2 items-center">
-                            <a href="{{ route('projects.edit', ['project' => $projectData]) }}"
-                                class="bg-yellow-600 rounded-lg w-[80px] py-1 text-center">Edit</a>
-
                             <a href="{{ route('projects.show', ['project' => $projectData]) }}"
                                 class="bg-blue-600 rounded-lg w-[80px] py-1 text-center">Show</a>
+                            <a href="{{ route('projects.edit', ['project' => $projectData]) }}"
+                                class="bg-yellow-600 rounded-lg w-[80px] py-1 text-center">Edit</a>
 
                             <form action="{{ route('projects.destroy', ['project' => $projectData]) }}" method="POST">
                                 @csrf

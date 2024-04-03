@@ -13,13 +13,28 @@
 
     </x-slot>
 
-    <div class="card-big">
-        <h2>{{ $project->title }}</h2>
-        <img src="{{ $project->thumb }}" alt="{{ $project->title }}">
-        <p>{{ $project->description }} </p>
-        <p>
-            {{ $stack->name }}
-        </p>
+    <div class="card-big flex flex-col gap-12 items-center my-5 bg-slate-900 text-white p-12 w-2/3 mx-auto">
+        <h2 class="text-center text-3xl font-bold uppercase ">{{ $project->title }}</h2>
+        <img src="{{ $project->thumb }}" alt="{{ $project->title }}" class="w-[400px]">
+        <p class="text-xl">{{ $project->description }} </p>
+        <div class="flex flex-col gap-3 items-center">
+            <p class="text-2xl font-extrabold"> Technologies used in this project: </p>
+            <div class="flex">
+                <img src="{{ $project->stack->logo_url }}" alt="{{ $project->stack->name }}" class="w-[100px]">
+            </div>
+        </div>
+        <div class="actions flex gap-3 items-center justify-center">
+
+            <a href="{{ route('projects.edit', ['project' => $project]) }}"
+                class="bg-yellow-600 rounded-lg w-[80px] py-1 text-center">Edit</a>
+
+            <form action="{{ route('projects.destroy', ['project' => $project]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="bg-red-700 rounded-lg w-[80px] py-1 text-center">Delete</button>
+            </form>
+        </div>
+
     </div>
 
 </x-app-layout>
