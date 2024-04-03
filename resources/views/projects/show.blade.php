@@ -17,6 +17,9 @@
         <h2>{{ $project->title }}</h2>
         <img src="{{ $project->thumb }}" alt="{{ $project->title }}">
         <p>{{ $project->description }} </p>
+        <p>
+            {{ $stack->name }}
+        </p>
     </div>
 
 </x-app-layout>

@@ -37,8 +37,13 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        return view('projects.show', compact('project'));
+        // Accessing the 'stack' relationship to retrieve related stack records
+        $stack = $project->stack->first();
+
+        // Pass the $project and $stack variables to the view
+        return view('projects.show', compact('project', 'stack'));
     }
+
 
     public function edit(Project $project)
     {

@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Stack extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
-    public function post(): BelongsTo
+
+    public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
     }
